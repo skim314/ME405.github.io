@@ -46,56 +46,58 @@ The goal of the brackets were to attach them securely to the Romi. The original 
 
 [Download the Side Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/sidebrackets_print_4.STL)
 
-## Code Explained
+## Our System 
 There are 8 seperate py files in the zip file: bump sensor, cotask, encoder, i2c, line sensor, motor, task share, and main. 
 
-### Bumpsensor.py
+### Code Explained
+#### Bumpsensor.py
 In this code, we are defining a python class, "BumpSensor". This is designed to detect when the bump sensor is triggered. The is_bumped detects a change when the sensor is pressed, as then the pin state would change from high to low. The wait_for_bump monitors the sensor state and halts execution until there is a bump detected.
 
-### cotask.py
+#### cotask.py
 This file defines a multitasking framework to manage cooperative task execution. It is a generator-based approach where the tasks yield control to the scheduler. This allows time-sharing between tasks. This is ideal for embedded systems where resources are limited, and it is useful as it allows control over task execution timing and prioritization. 
 
-### encoder.py
+#### encoder.py
 We are defining an encoder interface for measuring position as well as speed. This is beneficial for our application as Romi requires precise position and speed measurement for following the maze path. 
 
-### i2c.py
+#### i2c.py
 We are defining a python class (BN055) for interfacing the IMU. This provides methods to retrieve calibration data, read angular velocity, orienation, and for configuring the sensor. It utilizes I2C communication to interact with the IMU. 
 
-### linesensor.py
+#### linesensor.py
 We are defining a module for interfacing our line sensor. It allows for detection of black or white surface colors, which is needed for the maze. It implements two classes, LineTrackingSensor and LineTrackingSensorArray. It uses ADC module to read the sensor voltages and determine the color.
 
-### motor.py 
+#### motor.py 
 Our MotorDriver class enables precise direction and for speed adjustments. Here, we can control the motor by enabling/disabling, setting direction, and for adjusting effort. We use PWM (pulse-width modulation) to control motor speed using digital pins. 
 
-### taskshare.py
+#### taskshare.py
 This module is a framework for sharing data between tasks for a multitasking environment. It ensures that the data is not corrupted when tasks are interrupted. 
 
-### main.py 
+#### main.py 
 This is where the magic lies. This code sets up the multi-tasking system to control the robot. The system includes reading sensor data, controlling the motor, as well as closed-loop feedback control for line following. It seperates different functionalities like sensor reading, communication, etc into tasks. This allows for better maintenance of the code structure. There are also shared variables in our code, such as "right_motor_speed_share", which allows different tasks to commmunicate and exchange data. This ensures that each task is updated consistently which most recent readings from the sensor and control. Below is a snippet of our code as this shows the multi-tasking system set up.
 ![image](https://github.com/user-attachments/assets/6743baa3-4005-43d9-b919-ccb69d2e8c2c)
 
-
-wiring diagram: 
-5 for line sensor, 1 for bump sensor 
-
-
-
-
-Here is the link to the zip file that includes all the required code files to run the Romi.
-[Link to Zip File (https://github.com/user-attachments/files/18130081/Final.Project.zip)
-
-
-## Results (Video Link)
-As you can see in our video, when we put the Romi at the start line, it follows the line but then turns thinking it is following the edge of the line instead of the path. The second clip shows when we tested the squiggly path, and you can see that our Romi follows the path here. The videos were taken at the same test run, but we wanted to show that it does indeed follow the path. We will talk about future improvements in the next section. 
+### Wiring Diagram 
+This wiring diagram shows which input pins are used for system. This wiring diagram will provide the framework to recreate this system.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/93e745b1-80b1-4f4c-909c-ed08b599179c" alt="image" width="400">
+  <img src="https://github.com/user-attachments/assets/e7f1a431-d55b-4ebb-b58a-03584951d257" alt="image" width="600">
 </div>
+
+### Download Code Files 
+Here is the link to the zip file that includes all the required code files to run the Romi.
+
+[Link to Zip File (https://github.com/user-attachments/files/18130081/Final.Project.zip)
+
+### Best Run (Video Link)
+As you can see in our video, when we put the Romi at the start line, it follows the line but then turns thinking it is following the edge of the line instead of the path. The second clip shows when we tested the squiggly path, and you can see that our Romi follows the path here. The videos were taken at the same test run, but we wanted to show that it does indeed follow the path. We will talk about future improvements in the next section. 
+
+https://github.com/user-attachments/assets/e749d507-0f51-44fc-a853-704069c0a56f
+
+[Youtube Video Link](https://youtu.be/2l3S6Px2HUI)
 
 
 ## Recommendations for Improvement 
 #### Sensor Troubleshooting
-However, we had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor?
+We had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor?
 
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b010680d-bb3d-418d-89c5-ebd9772a6176" alt="image" width="700">
@@ -108,7 +110,7 @@ However, this was not the case as puTTY was showing the changes real time when w
 </div>
 
 Then our next step was to look at our control system. 
-**Talk about distance of line sensor to ground , implementing more sensors 
+
 ### Control System Troubleshooting
 As you can see on our video, our Romi did not perform like we wanted it to. We were having trouble with the Romi following the main black line, it seemed to register the outer side of the paper during our trial runs. We would work on the control system, as it seems that our error resonates there. 
 
@@ -116,31 +118,4 @@ To give a bit of background, our control system was PID (Proportional-Integral-D
 
 We estimate that our control system has improper PID tuning, or that our logic has an incorrect implementation. If our P is too low, the robot would react too slowly, which we don't believe was the case. If our P is too high, the Romi may overcorrect and lose the line path. If our I or D is too high, the errors would stack and lead to overcorrections. To fix this, we would have to troubleshoot by adjusting the PID gains. Due to these issues, we need to review that the error is calculated correctly and that the PID terms are updating consistently. 
 
-
-
-
-Emphasis, aka italics, with *asterisks* or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-
-
-
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-
-
-Markdown | Less | Pretty
---- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
-
+Although we are not happy with our final results, we believe these future improvements would allow our Romi to complete the maze. 
