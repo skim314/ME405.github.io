@@ -28,11 +28,10 @@ We planned to use 1 bumper sensor and 3 line sensors. The bumper sensor would de
 ### Sensor Brackets 
 We were planning to use 1 middle bracket and 2 side brackets, shown here on the Romi.
 
-The goal of the brackets were to attach them securely to the Romi. The original plan was to use one side bracket design, but due to the middle part of Romi not being flat like the sides, we created an additional middle bracket design. 
+The goal of the brackets were to attach them securely to the Romi. The original plan was to use one side bracket design, but due to the middle part of Romi not being flat like the sides, we created an additional middle bracket design. The following links below are stl files for the brackets. 
 
-REPLACE THE LINK WITH SOLIDWORKS SCREENSHOT 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/eee2ba06-a4db-4f68-a96d-1ed20a6bf5d9" alt="image" width="300">
+  <img src="https://github.com/user-attachments/assets/f26290a6-3893-4a67-b77a-b78455e28032" alt="image" width="400">
 </div>
 
 <div align="center">
@@ -46,12 +45,61 @@ REPLACE THE LINK WITH SOLIDWORKS SCREENSHOT
 </div>
 
 [Download the Side Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/sidebrackets_print_4.STL)
+
 ## Code Explained
+There are 8 seperate py files in the zip file: bump sensor, cotask, encoder, i2c, line sensor, motor, task share, and main. 
+
+### Bumpsensor.py
+In this code, we are defining a python class, "BumpSensor". This is designed to detect when the bump sensor is triggered. The is_bumped detects a change when the sensor is pressed, as then the pin state would change from high to low. The wait_for_bump monitors the sensor state and halts execution until there is a bump detected.
+
+### cotask.py
+This file defines a multitasking framework to manage cooperative task execution. It is a generator-based approach where the tasks yield control to the scheduler. This allows time-sharing between tasks. This is ideal for embedded systems where resources are limited, and it is useful as it allows control over task execution timing and prioritization. 
+
+### encoder.py
+We are defining an encoder interface for measuring position as well as speed. This is beneficial for our application as Romi requires precise position and speed measurement for following the maze path. 
+
+### i2c.py
+We are defining a python class (BN055) for interfacing the IMU. This provides methods to retrieve calibration data, read angular velocity, orienation, and for configuring the sensor. It utilizes I2C communication to interact with the IMU. 
+
+### linesensor.py
+We are defining a module for interfacing our line sensor. It allows for detection of black or white surface colors, which is needed for the maze. It implements two classes, LineTrackingSensor and LineTrackingSensorArray. It uses ADC module to read the sensor voltages and determine the color.
+
+### motor.py 
+Our MotorDriver class enables precise direction and for speed adjustments. Here, we can control the motor by enabling/disabling, setting direction, and for adjusting effort. We use PWM (pulse-width modulation) to control motor speed using digital pins. 
+
+### taskshare.py
+This module is a framework for sharing data between tasks for a multitasking environment. It ensures that the data is not corrupted when tasks are interrupted. 
+
+### main.py 
+This is where the magic lies. This code sets up the multi-tasking system to control the robot. The system includes reading sensor data, controlling the motor, as well as closed-loop feedback control for line following. It seperates different functionalities like sensor reading, communication, etc into tasks. This allows for better maintenance of the code structure. There are also shared variables in our code, such as "right_motor_speed_share", which allows different tasks to commmunicate and exchange data. This ensures that each task is updated consistently which most recent readings from the sensor and control. Below is a snippet of our code as this shows the multi-tasking system set up.
+![image](https://github.com/user-attachments/assets/6743baa3-4005-43d9-b919-ccb69d2e8c2c)
+
+
+wiring diagram: 
+5 for line sensor, 1 for bump sensor 
+
+
+
+
+
+
+[Link to Zip File (includes all code)](https://github.com/user-attachments/files/18130081/Final.Project.zip)
+
+
+
+
+
+
+
+
 
 ## Results (Video Link)
-Our final video 
+As you can see in our video, when we put the Romi at the start line, it follows the line but then turns thinking it is following the edge of the line instead of the path. The second clip shows when we tested the squiggly path, and you can see that our Romi follows the path here. The videos were taken at the same test run, but we wanted to show that it does indeed follow the path. We will talk about future improvements in the next section. 
 
-[Watch this video on YouTube](https://www.youtube.com/watch?v=https://youtu.be/2l3S6Px2HUI?si=QDfl75pL1xpZk6KB)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/93e745b1-80b1-4f4c-909c-ed08b599179c" alt="image" width="400">
+</div>
+
 
 ## Recommendations for Improvement 
 #### Sensor Troubleshooting
