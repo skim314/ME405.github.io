@@ -83,20 +83,21 @@ This wiring diagram shows which input pins are used for system. This wiring diag
 </div>
 
 ### Download Code Files 
-Here is the link to the zip file that includes all the required code files to run the Romi.
+The link to the zip file that includes all the required code files to run the Romi is below.
 
-[Link to Zip File (https://github.com/user-attachments/files/18130081/Final.Project.zip)
+[Download Zip File](https://github.com/skim314/ME405.github.io/blob/main/Final%20Project.zip)
+
 
 ### Best Run (Video Link)
 As you can see in our video, when we put the Romi at the start line, it follows the line but then turns thinking it is following the edge of the line instead of the path. The second clip shows when we tested the squiggly path, and you can see that our Romi follows the path here. The videos were taken at the same test run, but we wanted to show that it does indeed follow the path. We will talk about future improvements in the next section. 
 
-https://github.com/user-attachments/assets/e749d507-0f51-44fc-a853-704069c0a56f
+[Download/Watch Video](https://github.com/skim314/ME405.github.io/blob/main/Romi%20Run.mp4)
 
 [Youtube Video Link](https://youtu.be/2l3S6Px2HUI)
 
 
 ## Recommendations for Improvement 
-#### Sensor Troubleshooting
+### Sensor Troubleshooting
 We had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor?
 
 <div align="center">
