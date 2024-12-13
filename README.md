@@ -85,8 +85,7 @@ This wiring diagram shows which input pins are used for system. This wiring diag
 ### Download Code Files 
 The link to the zip file that includes all the required code files to run the Romi is below.
 
-[Download Zip File](https://github.com/skim314/ME405.github.io/raw/main/Final%20Project.zip)
-
+[Download Zip File](https://github.com/skim314/ME405.github.io/blob/main/Final%20Project.zip)
 
 ### Best Run (Video Link)
 As you can see in our video, when we put the Romi at the start line, it follows the line but then turns thinking it is following the edge of the line instead of the path. The second clip shows when we tested the squiggly path, and you can see that our Romi follows the path here. The videos were taken at the same test run, but we wanted to show that it does indeed follow the path. We will talk about future improvements in the next section. 
