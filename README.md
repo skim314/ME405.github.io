@@ -81,16 +81,8 @@ wiring diagram:
 
 
 
-
-
-[Link to Zip File (includes all code)](https://github.com/user-attachments/files/18130081/Final.Project.zip)
-
-
-
-
-
-
-
+Here is the link to the zip file that includes all the required code files to run the Romi.
+[Link to Zip File (https://github.com/user-attachments/files/18130081/Final.Project.zip)
 
 
 ## Results (Video Link)
