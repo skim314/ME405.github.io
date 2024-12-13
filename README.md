@@ -29,9 +29,17 @@ We planned to use 1 bumper sensor and 3 line sensors. The bumper sensor would de
 #### Sensor Troubleshooting
 However, we had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor? However, this was not the case as puTTY was showing the changes real time when we would cover some of the detectors and uncover them. 
 
-We were planning to use 1 middle bracket and 2 side brackets, shown here on the Romi. 
-[Download the Middle Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/middlebracket_print_2.STL)
+### Sensor Brackets 
+We were planning to use 1 middle bracket and 2 side brackets, shown here on the Romi.
 
+The goal of the brackets were to attach them securely to the Romi. The original plan was to use one side bracket design, but due to the middle part of Romi not being flat like the sides, we created an additional middle bracket design. 
+
+REPLACE THE LINK WITH SOLIDWORKS SCREENSHOT 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/eee2ba06-a4db-4f68-a96d-1ed20a6bf5d9" alt="image" width="300">
+</div>
+
+[Download the Middle Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/middlebracket_print_2.STL)
 
 [Download the Side Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/sidebrackets_print_4.STL)
 ## Code Explained
@@ -39,7 +47,14 @@ We were planning to use 1 middle bracket and 2 side brackets, shown here on the 
 ## Results (Video Link)
 [Watch this video on YouTube](https://www.youtube.com/watch?v=VIDEO_ID)
 
+As you can see on our video, our Romi did not perform like we wanted it to. We were having trouble with the Romi following the main black line, it seemed to register the outer side of the paper during our trial runs. We would work on the control system, as it seems that our error resonates there. 
 
+
+As we are using PID control system,
+
+
+
+We don't believe it was an issue with the sensors, but there may be an influence of the fact that we were only using one line sensor instead of three, like we originally planned for. 
 
 
 Emphasis, aka italics, with *asterisks* or _underscores_.
