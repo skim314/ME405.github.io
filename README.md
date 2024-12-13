@@ -1,62 +1,55 @@
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+# ME 405 Final Project: Romi Time Trials and Final Deliverables 
+## Features of the Romi
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/eee2ba06-a4db-4f68-a96d-1ed20a6bf5d9" alt="image" width="300">
+</div>
 
-Alternatively, for H1 and H2, an underline-ish style:
+For this project, we were provided the Romi chassis, motor driver, power distribution board, and a romi encoder pair kit. The goal for this project was to get Romi to follow the maze, which includes squiggly lines, straight lines, and an obstacle. The Romi is not able to move holonomically, but it can spin in place and allow turns. In addition to the Romi-specific components that were listed earlier, we have an IMU (Inertial Measurement Unit) called the BNO55. The IMU provides sensor data to Romi so that Romi's navigation skills are enhanced. This information supplements the wheel encoder data, as the encoder data gives real time movement data while the IMU gives orientation/position information that betters Romi's performance. 
+<div style="text-align: center;">
+  <a href="https://www.pololu.com/product/4022">Romi Kit Link</a>
+ </div>
 
-Alt-H1
-======
 
-Alt-H2
-------
+## Sensors 
+We planned to use 1 bumper sensor and 3 line sensors. The bumper sensor would detect collisions or impacts with objects, which was useful as the final maze includes an obstacle. The line sensors were the star of the show, as the Romi is programmed to follow the black line on the maze. It works by adjusting its motors based on inputs from the line sensor. If the sensor detects the line on the left, it should turn left to realign, and vice versa. Together, these sensors would enhance the robot's ability to naviage autonomously. 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/afb83e88-ba85-4fed-a0c5-61c4ca6973fd" alt="image" width="300">
+  <img src="https://github.com/user-attachments/assets/ccf53c6c-6019-484d-a365-e019ce8df435" alt="image" width="200">
+</div>
+
+<div style="text-align: center;">
+  <a href="https://www.robotshop.com/products/infrared-line-tracking-sensor">Line Sensor Link</a>
+ </div>
+ 
+<div style="text-align: center;">
+ <a href="https://www.robotshop.com/products/bumper-sensor-robot">Bumper Sensor Link</a>
+</div>
+
+
+#### Sensor Troubleshooting
+However, we had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor? However, this was not the case as puTTY was showing the changes real time when we would cover some of the detectors and uncover them. 
+
+
+
+
+
+## Code Explained
+
+## Results (Video Link)
+[Watch this video on YouTube](https://www.youtube.com/watch?v=VIDEO_ID)
+
+
+
+
 Emphasis, aka italics, with *asterisks* or _underscores_.
 
 Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
 Combined emphasis with **asterisks and _underscores_**.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
-1. First ordered list item
-2. Another item
-  * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-4. And another item.  
-   
-   Some text that should be aligned with the above item.
 
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
-  [I'm an inline-style link](https://www.google.com)
 
-[I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself]
-
-URLs and URLs in angle brackets will automatically get turned into links. 
-http://www.example.com or <http://www.example.com> and sometimes 
-example.com (but not on Github, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org
-[1]: http://slashdot.org
-[link text itself]: http://www.reddit.com
-Here's our logo (hover to see the title text):
-
-Inline-style: 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
-
-Reference-style: 
-![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
 
 Colons can be used to align columns.
 
@@ -66,7 +59,7 @@ Colons can be used to align columns.
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
-The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
+
 
 Markdown | Less | Pretty
 --- | --- | ---
