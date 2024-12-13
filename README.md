@@ -29,10 +29,11 @@ We planned to use 1 bumper sensor and 3 line sensors. The bumper sensor would de
 #### Sensor Troubleshooting
 However, we had an unexpected delay as our 2nd rendition of our 3D prints were not able to be printed in time. We attached a line sensor to an already printed out bumper sensor bracket. We ran into issues with the line sensor not following the line from the maze, so we had to start from the beginning - testing that the line sensors were correctly working on the Romi. We covered a couple of the infrared detectors on the sensor, as there are five detectors on one sensor. Our thought process was that if Romi is not correctly following the path, is there a potential issue with our line sensor? However, this was not the case as puTTY was showing the changes real time when we would cover some of the detectors and uncover them. 
 
+We were planning to use 1 middle bracket and 2 side brackets, shown here on the Romi. 
+[Download the Middle Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/middlebracket_print_2.STL)
 
 
-
-
+[Download the Side Bracket STL file](https://github.com/skim314/ME405.github.io/blob/main/sidebrackets_print_4.STL)
 ## Code Explained
 
 ## Results (Video Link)
